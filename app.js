@@ -23,3 +23,15 @@ links.forEach(link => {
 	listItem.appendChild(anchor);
 	linkList.appendChild(listItem);
 });
+
+
+function switchLanguage(lang) {
+    if (lang === 'it') {
+      window.location.href = 'index-it.html';
+    }
+    if (lang === 'en') {
+        window.location.href = 'index.html';
+      }
+    // add more conditions for other languages if desired
+  }
+  
