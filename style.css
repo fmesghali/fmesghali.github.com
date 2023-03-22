@@ -87,3 +87,9 @@ header {
 #photo-gallery img:hover {
 	transform: scale(3.5);
   }
+
+  #photo-gallery img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
