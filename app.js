@@ -36,4 +36,11 @@ function switchLanguage(lang) {
   }
 
 
- 
+function onSignIn(googleUser) {
+	// Get user details
+	var profile = googleUser.getBasicProfile();
+	var email = profile.getEmail();
+  
+	// Check if user is authorized
+	// Redirect to the authorized page or show an error message
+  }
