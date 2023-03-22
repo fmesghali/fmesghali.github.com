@@ -34,4 +34,6 @@ function switchLanguage(lang) {
       }
     // add more conditions for other languages if desired
   }
-  
+
+
+ 
