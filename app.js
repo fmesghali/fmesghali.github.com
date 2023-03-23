@@ -34,3 +34,35 @@ function switchLanguage(lang) {
       }
     // add more conditions for other languages if desired
   }
+
+  const scrollLeftButton = document.querySelector('#scroll-left-button');
+  const scrollRightButton = document.querySelector('#scroll-right-button');
+  const galleryContainer = document.querySelector('#photo-gallery');
+  const scrollAmount = 500;
+  
+  // Add event listeners to the buttons
+  scrollLeftButton.addEventListener('click', () => {
+	galleryContainer.scroll({
+	  left: galleryContainer.scrollLeft - scrollAmount,
+	  behavior: 'smooth'
+	});
+  });
+  
+  scrollRightButton.addEventListener('click', () => {
+	galleryContainer.scroll({
+	  left: galleryContainer.scrollLeft + scrollAmount,
+	  behavior: 'smooth'
+	});
+  });
+  
+
+$(document).ready(function() {
+	$('#photo-gallery img').on('click', function() {
+	  $(this).addClass('expanded');
+	});
+  
+	$(document).on('click', '.expanded', function() {
+	  $(this).removeClass('expanded');
+	});
+  });
+  

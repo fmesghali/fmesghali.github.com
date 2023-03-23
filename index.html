@@ -5,20 +5,66 @@
 		<link rel="stylesheet" href="style.css">
 		<style>
 			/* CSS for photo gallery */
+			#photo-gallery-container {
+ 			position: relative;
+  			width: 100%;
+			}
 			#photo-gallery {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				grid-gap: 20px;
-				margin: 20px 0;
+			display: flex;
+			flex-wrap: nowrap;
+			overflow-x: hidden;
+			margin: 20px 0;
+			height: 400px;
+			transition: margin-left 0.3s ease;
 			}
 			#photo-gallery img {
-				max-width: 100%;
-				height: auto;
-				transition: transform 0.3s ease;
+			max-width: 500px;
+			max-height: 400px;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+			cursor: pointer;
 			}
-			#photo-gallery img:hover {
-				transform: scale(3.0);
+
+			#photo-gallery img:hover,
+			#photo-gallery img:focus {
+			transform: scale(1.5);
 			}
+			#photo-gallery .expanded {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: rgba(0, 0, 0, 0.8);
+			}
+			#photo-gallery .expanded img {
+			max-width: 90%;
+			max-height: 90%;
+			object-fit: contain;
+			cursor: pointer;
+			}
+			#scroll-left-button,
+			#scroll-right-button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background-color: rgba(0, 0, 0, 0.5);
+			color: #fff;
+			font-size: 1.5rem;
+			padding: 10px;
+			cursor: pointer;
+			}
+			#scroll-left-button {
+			left: 0;
+			}
+			#scroll-right-button {
+			right: 0;
+			}
+
 		</style>
 	</head>
 <body>
@@ -74,18 +120,22 @@
 		<section id="gallery">
 			<h2>Gallery</h2>
 			<p>Check out our rooms:</p>
-			<div id="photo-gallery">
-				<img src="/photos/1.jpg" alt="Room photo">
-				<img src="/photos/2.jpg" alt="Room photo">
-				<img src="/photos/3.jpg" alt="Room photo">
-				<img src="/photos/4.jpg" alt="Room photo">
-				<img src="/photos/5.jpg" alt="Room photo">
-				<img src="/photos/6.jpg" alt="Room photo">
-				<img src="/photos/7.jpg" alt="Room photo">
-				<img src="/photos/8.jpg" alt="Room photo">
-				<img src="/photos/9.jpg" alt="Room photo">
-				<img src="/photos/10.jpg" alt="Room photo">
-			</div>
+			<div id="photo-gallery-container">
+				<div id="photo-gallery">
+				  <div class="slide"><img src="/photos/1.jpg" alt="Room photo"></div>
+				  <div class="slide"><img src="/photos/2.jpg" alt="Room photo"></div>
+				  <div class="slide"><img src="/photos/3.jpg" alt="Room photo"></div>
+				  <div class="slide"><img src="/photos/4.jpg" alt="Room photo"></div>
+				  <div class="slide"><img src="/photos/5.jpg" alt="Room photo"></div>
+				  <div class="slide"><img src="/photos/6.jpg" alt="Room photo"></div>
+				  <div class="slide"><img src="/photos/7.jpg" alt="Room photo"></div>
+				  <div class="slide"><img src="/photos/8.jpg" alt="Room photo"></div>
+				  <div class="slide"><img src="/photos/9.jpg" alt="Room photo"></div>
+				  <div class="slide"><img src="/photos/10.jpg" alt="Room photo"></div>
+				</div>
+				<button id="scroll-left-button">&#8249;</button>
+				<button id="scroll-right-button">&#8250;</button>
+			  </div>
 		</section>
 		<hr>
 		<section id="where-we-are">
