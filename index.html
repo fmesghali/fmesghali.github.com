@@ -4,66 +4,57 @@
 		<title>Optimus Pannonia Houses | Your Ideal Accommodation</title>
 		<link rel="stylesheet" href="style.css">
 		<style>
-			/* CSS for photo gallery */
-			#photo-gallery-container {
- 			position: relative;
-  			width: 100%;
-			}
-			#photo-gallery {
-			display: flex;
-			flex-wrap: nowrap;
-			overflow-x: hidden;
-			margin: 20px 0;
-			height: 400px;
-			transition: margin-left 0.3s ease;
-			}
-			#photo-gallery img {
-			max-width: 500px;
-			max-height: 400px;
-			object-fit: cover;
-			transition: transform 0.3s ease;
-			cursor: pointer;
-			}
+/* CSS for photo gallery */
+#photo-gallery-container {
+  position: relative;
+  width: 100%;
+}
+#photo-gallery {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  margin: 20px 0;
+  height: 400px;
+  transition: margin-left 0.3s ease;
+}
+#photo-gallery img {
+  max-width: 500px;
+  max-height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
 
-			#photo-gallery img:hover,
-			#photo-gallery img:focus {
-			transform: scale(1.5);
-			}
-			#photo-gallery .expanded {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 1000;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			background-color: rgba(0, 0, 0, 0.8);
-			}
-			#photo-gallery .expanded img {
-			max-width: 90%;
-			max-height: 90%;
-			object-fit: contain;
-			cursor: pointer;
-			}
-			#scroll-left-button,
-			#scroll-right-button {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			background-color: rgba(0, 0, 0, 0.5);
-			color: #fff;
-			font-size: 1.5rem;
-			padding: 10px;
-			cursor: pointer;
-			}
-			#scroll-left-button {
-			left: 0;
-			}
-			#scroll-right-button {
-			right: 0;
-			}
+#photo-gallery img.enlarged {
+  width: 100%;
+  height: 100%;
+  max-width: none; /* or set to a high value like 2000px */
+  max-height: none; /* or set to a high value like 2000px */
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transform: scale(1.5); /* or adjust the scale value as needed */
+}
+
+#scroll-left-button,
+#scroll-right-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 10px;
+  cursor: pointer;
+}
+#scroll-left-button {
+  left: 0;
+}
+#scroll-right-button {
+  right: 0;
+}
+
+
 
 		</style>
 	</head>
@@ -183,6 +174,71 @@
 	s1.setAttribute('crossorigin','*');
 	s0.parentNode.insertBefore(s1,s0);
 	})();
+
+	const links = [
+	{
+		label: 'Google',
+		url: 'https://www.google.com'
+	},
+	{
+		label: 'Facebook',
+		url: 'https://www.facebook.com'
+	},
+	{
+		label: 'Twitter',
+		url: 'https://www.twitter.com'
+	}
+];
+
+const linkList = document.getElementById('link-list');
+
+links.forEach(link => {
+	const listItem = document.createElement('li');
+	const anchor = document.createElement('a');
+	anchor.textContent = link.label;
+	anchor.setAttribute('href', link.url);
+	listItem.appendChild(anchor);
+	linkList.appendChild(listItem);
+});
+
+
+function switchLanguage(lang) {
+    if (lang === 'it') {
+      window.location.href = 'index-it.html';
+    }
+    if (lang === 'en') {
+        window.location.href = 'index.html';
+      }
+    // add more conditions for other languages if desired
+  }
+
+  const scrollLeftButton = document.querySelector('#scroll-left-button');
+  const scrollRightButton = document.querySelector('#scroll-right-button');
+  const galleryContainer = document.querySelector('#photo-gallery');
+  const scrollAmount = 500;
+  
+  // Add event listeners to the buttons
+  scrollLeftButton.addEventListener('click', () => {
+	galleryContainer.scroll({
+	  left: galleryContainer.scrollLeft - scrollAmount,
+	  behavior: 'smooth'
+	});
+  });
+  
+  scrollRightButton.addEventListener('click', () => {
+	galleryContainer.scroll({
+	  left: galleryContainer.scrollLeft + scrollAmount,
+	  behavior: 'smooth'
+	});
+  });
+  
+
+  $(document).ready(function() {
+  $('#photo-gallery img').on('click', function() {
+    $(this).parent().toggleClass('enlarged');
+  });
+});
+
 	</script>
 </body>
 </html>
