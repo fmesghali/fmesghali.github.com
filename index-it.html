@@ -174,16 +174,36 @@ right: 0;
 
 	<script>
 		const photos = document.querySelectorAll("#photo-gallery img");
-		photos.forEach(photo => {
-			photo.addEventListener("click", function() {
-				photo.classList.toggle("enlarged");
-			});
-		});
-	
-	
-		
-	
-	</script>
+	 
+	 photos.forEach(photo => {
+	   photo.addEventListener("click", function() {
+		 if (photo.classList.contains("enlarged")) {
+		   photo.classList.remove("enlarged");
+		 } else {
+		   photo.classList.add("enlarged");
+		 }
+	   });
+	 });
+	 
+	 document.addEventListener("keydown", function(event) {
+	   if (event.keyCode === 27) {
+		 photos.forEach(photo => {
+		   photo.classList.remove("enlarged");
+		 });
+	   }
+	 });
+	 
+	 document.addEventListener("click", function(event) {
+	   const isPhoto = event.target.closest("#photo-gallery img");
+	   if (!isPhoto) {
+		 photos.forEach(photo => {
+		   photo.classList.remove("enlarged");
+		 });
+	   }
+	 });
+		 
+	 
+	 </script>
 
 	<script type="text/javascript">
 		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

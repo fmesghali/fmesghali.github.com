@@ -1,0 +1,155 @@
+<head>
+
+
+    <style>
+        /* CSS for photo gallery */
+        #photo-gallery-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        }
+        #photo-gallery {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+        margin: 20px 0;
+        height: 550px;
+        transition: margin-left 0.3s ease;
+        }
+        #photo-gallery img {
+        max-width: 800px;
+        max-height: 800px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        }
+        
+        #photo-gallery img.enlarged {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0.8);
+          width: auto;
+          height: auto;
+          max-width: 80%;
+          max-height: 80%;
+          object-fit: contain;
+          cursor: pointer;
+          transition: transform 0.3s ease, max-width 0.3s ease, max-height 0.3s ease;
+          z-index: 9999;
+          transform-origin: center center;
+        }
+        
+        #photo-gallery img.enlarged.active {
+          transform: translate(-50%, -50%) scale(1);
+          max-width: 100%;
+          max-height: 100%;
+        }
+        
+        
+        #scroll-left-button,
+        #scroll-right-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 20px;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        
+        #scroll-left-button {
+        left: 0;
+        }
+        
+        #scroll-right-button {
+        right: 0;
+        }
+        
+        
+                </style>
+
+
+</head><section id="gallery">
+    <h2>Gallery</h2>
+    <p>Check out our rooms:</p>
+    <div id="photo-gallery-container">
+        <div id="photo-gallery">
+          <div class="slide"><img src="/photos/1.jpg" alt="Room photo"></div>
+          <div class="slide"><img src="/photos/2.jpg" alt="Room photo"></div>
+          <div class="slide"><img src="/photos/3.jpg" alt="Room photo"></div>
+          <div class="slide"><img src="/photos/4.jpg" alt="Room photo"></div>
+          <div class="slide"><img src="/photos/5.jpg" alt="Room photo"></div>
+          <div class="slide"><img src="/photos/6.jpg" alt="Room photo"></div>
+          <div class="slide"><img src="/photos/7.jpg" alt="Room photo"></div>
+          <div class="slide"><img src="/photos/8.jpg" alt="Room photo"></div>
+          <div class="slide"><img src="/photos/9.jpg" alt="Room photo"></div>
+          <div class="slide"><img src="/photos/10.jpg" alt="Room photo"></div>
+        </div>
+        <button id="scroll-left-button">&#8249;</button>
+        <button id="scroll-right-button">&#8250;</button>
+      </div>
+</section>
+
+<script>  const scrollLeftButton = document.querySelector('#scroll-left-button');
+    const scrollRightButton = document.querySelector('#scroll-right-button');
+    const galleryContainer = document.querySelector('#photo-gallery');
+    const scrollAmount = 500;
+    
+    // Add event listeners to the buttons
+    scrollLeftButton.addEventListener('click', () => {
+      galleryContainer.scroll({
+        left: galleryContainer.scrollLeft - scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+    scrollRightButton.addEventListener('click', () => {
+      galleryContainer.scroll({
+        left: galleryContainer.scrollLeft + scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+  
+  
+  
+  </script>
+  <script>
+   const photos = document.querySelectorAll("#photo-gallery img");
+
+photos.forEach(photo => {
+  photo.addEventListener("click", function() {
+    if (photo.classList.contains("enlarged")) {
+      photo.classList.remove("enlarged");
+    } else {
+      photo.classList.add("enlarged");
+    }
+  });
+});
+
+document.addEventListener("keydown", function(event) {
+  if (event.keyCode === 27) {
+    photos.forEach(photo => {
+      photo.classList.remove("enlarged");
+    });
+  }
+});
+
+document.addEventListener("click", function(event) {
+  const isPhoto = event.target.closest("#photo-gallery img");
+  if (!isPhoto) {
+    photos.forEach(photo => {
+      photo.classList.remove("enlarged");
+    });
+  }
+});
+	
+
+</script>
