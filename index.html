@@ -37,12 +37,6 @@
   transform: scale(1.5); /* or adjust the scale value as needed */
 }
 
-#photo-gallery {
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-
 #scroll-left-button,
 #scroll-right-button {
   position: absolute;
@@ -244,26 +238,6 @@ function switchLanguage(lang) {
   $('#photo-gallery img').on('click', function() {
     $(this).parent().toggleClass('enlarged');
   });
-});
-
-
-const photoGallery = document.getElementById('photo-gallery');
-let touchStartX = 0;
-let touchEndX = 0;
-let galleryPosition = 0;
-
-photoGallery.addEventListener('touchstart', (e) => {
-  touchStartX = e.touches[0].clientX;
-});
-
-photoGallery.addEventListener('touchmove', (e) => {
-  e.preventDefault();
-  touchEndX = e.touches[0].clientX;
-  photoGallery.style.marginLeft = `${galleryPosition + touchEndX - touchStartX}px`;
-});
-
-photoGallery.addEventListener('touchend', () => {
-  galleryPosition += touchEndX - touchStartX;
 });
 
 	</script>
