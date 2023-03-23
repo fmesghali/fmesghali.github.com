@@ -304,33 +304,34 @@ function handleTouchMove(event) {
 }
 
 function handleTouchEnd(event) {
+  const touchEndX = event.changedTouches[0].clientX;
+  const touchEndY = event.changedTouches[0].clientY;
+  const touchDistanceX = touchEndX - touchStartX;
+  const touchDistanceY = touchEndY - touchStartY;
   touchStartX = null;
   touchStartY = null;
-  const touchEndX = event.changedTouches[0].clientX;
-const touchEndY = event.changedTouches[0].clientY;
-const touchDistanceX = touchEndX - touchStartX;
-const touchDistanceY = touchEndY - touchStartY;
-const threshold = 50; // Minimum distance required for swipe
+  const threshold = 50; // Minimum distance required for swipe
 
-if (Math.abs(touchDistanceX) > threshold && Math.abs(touchDistanceY) < threshold) {
-// Horizontal swipe detected
-if (touchDistanceX > 0) {
-// Swipe to the right, show the previous photo
-const previousPhoto = this.previousElementSibling;
-if (previousPhoto) {
-previousPhoto.classList.add("enlarged");
-this.classList.remove("enlarged");
+  if (Math.abs(touchDistanceX) > threshold && Math.abs(touchDistanceY) < threshold) {
+    // Horizontal swipe detected
+    if (touchDistanceX > 0) {
+      // Swipe to the right, show the previous photo
+      const previousPhoto = this.previousElementSibling;
+      if (previousPhoto) {
+        previousPhoto.classList.add("enlarged");
+        this.classList.remove("enlarged");
+      }
+    } else {
+      // Swipe to the left, show the next photo
+      const nextPhoto = this.nextElementSibling;
+      if (nextPhoto) {
+        nextPhoto.classList.add("enlarged");
+        this.classList.remove("enlarged");
+      }
+    }
+  }
 }
-} else {
-// Swipe to the left, show the next photo
-const nextPhoto = this.nextElementSibling;
-if (nextPhoto) {
-nextPhoto.classList.add("enlarged");
-this.classList.remove("enlarged");
-}
-}
-}
-}
+
   </script>
   
 <script type="text/javascript">
