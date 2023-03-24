@@ -309,13 +309,7 @@ function handleTouchEnd(event) {
     }
   }
 }
-
-
-
-
-
-  </script>
-  
+</script>  
 <script type="text/javascript">
 	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 	(function(){
@@ -332,28 +326,14 @@ function handleTouchEnd(event) {
 
 <script>
 var photoGallery = document.getElementById('photo-gallery');
-var hammertime = new Hammer(photoGallery);
+var hammertime = new Hammer(photoGallery, {
+  swipeVelocityX: 0.2,
+  swipeThreshold: 30
+});
 
 var marginLeft = 0;
-hammertime.on('swipeleft', function() {
-  if (marginLeft > -photoGallery.offsetWidth + window.innerWidth - 800) {
-    marginLeft -= 800;
-    photoGallery.style.marginLeft = marginLeft + 'px';
-  }
-});
-hammertime.on('swiperight', function() {
-  if (marginLeft < 0) {
-    marginLeft += 800;
-    photoGallery.style.marginLeft = marginLeft + 'px';
-  }
-});
-
-var hammertime = new Hammer(photoGallery, {
-  swipeVelocityX: 0.2, // Adjust the velocity sensitivity
-  swipeThreshold: 30 // Adjust the threshold sensitivity
-});
 hammertime.on('swipeleft', function(ev) {
-  if (marginLeft > -photoGallery.offsetWidth + window.innerWidth && ev.distance > 0) {
+  if (marginLeft > -photoGallery.offsetWidth + window.innerWidth - 800 * (images.length - 1) && ev.distance > 0) {
     marginLeft -= 800;
     photoGallery.style.marginLeft = marginLeft + 'px';
   }
@@ -366,7 +346,6 @@ hammertime.on('swiperight', function(ev) {
   }
 });
 
-
 const images = document.querySelectorAll('#photo-gallery img');
 
 images.forEach(img => {
@@ -377,11 +356,6 @@ images.forEach(img => {
   });
 });
 
-
 </script>
-
-
-
-
 </body>
 </html>
