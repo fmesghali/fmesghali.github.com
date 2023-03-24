@@ -353,10 +353,12 @@ images.forEach(img => {
     const imgUrl = this.getAttribute('src');
     const win = window.open(imgUrl, '_blank');
     win.focus();
+    hammertime.get('swipe').set({ enable: true });
   });
 });
 
 </script>
+
 
 </body>
 </html>
