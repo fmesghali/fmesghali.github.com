@@ -93,8 +93,10 @@ right: 0;
 			photoGallery.addEventListener('touchstart', function(event) {
 			touchstartX = event.changedTouches[0].screenX;
 			}, false);
+			// Update galleryWidth when the window is resized
+			
 			window.addEventListener('resize', function() {
- 			galleryWidth = photoGallery.offsetWidth;
+			galleryWidth = photoGallery.offsetWidth;
 			});
 
 			photoGallery.addEventListener('touchmove', function(event) {
@@ -141,12 +143,7 @@ right: 0;
 			}
 			}
 			}
-
-
-
 		</script>
-		
-		
 		
 	</head>
 
