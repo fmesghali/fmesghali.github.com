@@ -387,6 +387,23 @@ hammertime.on('swiperight', function(ev) {
 });
 
 
+// Get all images in the photo gallery
+const images = document.querySelectorAll('#photo-gallery img');
+
+// Loop through each image and add the appropriate event listener
+images.forEach(image => {
+  if ('ontouchstart' in window) {
+    // Mobile devices
+    image.addEventListener('touchstart', () => {
+      window.open(image.src, '_blank');
+    });
+  } else {
+    // Desktop devices
+    image.addEventListener('click', () => {
+      window.open(image.src, '_blank');
+    });
+  }
+});
 
 
 
