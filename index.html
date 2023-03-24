@@ -80,7 +80,7 @@ right: 0;
 		
 		
 		<script>
-			window.onload = function() {
+window.onload = function() {
     var touchstartX = 0;
     var touchendX = 0;
     var minSwipePixels = 50; // minimum number of pixels to consider a swipe
@@ -88,6 +88,7 @@ right: 0;
     var currentPosition = 0;
     var sensitivity = 5; // higher values means less sensitive
     var galleryWidth = photoGallery.offsetWidth; // added to get the width of the gallery container
+    var numPhotos = photoGallery.children.length;
 
     photoGallery.addEventListener('touchstart', function(event) {
         touchstartX = event.changedTouches[0].screenX;
@@ -109,19 +110,20 @@ right: 0;
     function handleSwipeGesture() {
         if (touchendX < touchstartX && touchstartX - touchendX > minSwipePixels) {
             // swiped left
-            currentPosition -= galleryWidth; // subtract the width of the gallery container
+            currentPosition = Math.max(currentPosition - galleryWidth, -(numPhotos - 1) * galleryWidth); // subtract the width of the gallery container
             photoGallery.style.transition = "transform 0.3s ease";
             photoGallery.style.transform = "translateX(" + currentPosition + "px)";
         }
 
         if (touchendX > touchstartX && touchendX - touchstartX > minSwipePixels) {
             // swiped right
-            currentPosition += galleryWidth; // add the width of the gallery container
+            currentPosition = Math.min(currentPosition + galleryWidth, 0); // add the width of the gallery container
             photoGallery.style.transition = "transform 0.3s ease";
             photoGallery.style.transform = "translateX(" + currentPosition + "px)";
         }
     }
 }
+
 
 		</script>
 		
