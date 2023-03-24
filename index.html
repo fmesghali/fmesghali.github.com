@@ -368,6 +368,26 @@ hammertime.on('swiperight', function() {
   photoGallery.style.marginLeft = marginLeft + 'px';
 });
 
+var hammertime = new Hammer(photoGallery, {
+  swipeVelocityX: 0.2, // Adjust the velocity sensitivity
+  swipeThreshold: 30 // Adjust the threshold sensitivity
+});
+hammertime.on('swipeleft', function(ev) {
+  if (marginLeft > -photoGallery.offsetWidth + window.innerWidth && ev.distance > 0) {
+    marginLeft -= 800;
+    photoGallery.style.marginLeft = marginLeft + 'px';
+  }
+});
+
+hammertime.on('swiperight', function(ev) {
+  if (marginLeft < 0 && ev.distance > 0) {
+    marginLeft += 800;
+    photoGallery.style.marginLeft = marginLeft + 'px';
+  }
+});
+
+
+
 
 
 </script>

@@ -66,3 +66,46 @@ $(document).ready(function() {
 	});
   });
   
+
+  function scrollRight() {
+	if (currentIndex < images.length - 1) {
+	  currentIndex++;
+	  let image = images[currentIndex];
+	  image.classList.add('enlarged', 'active');
+	  image.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+	  images[currentIndex - 1].classList.remove('active');
+	}
+  }
+  
+  function scrollLeft() {
+	if (currentIndex > 0) {
+	  currentIndex--;
+	  let image = images[currentIndex];
+	  image.classList.add('enlarged', 'active');
+	  image.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+	  images[currentIndex + 1].classList.remove('active');
+	}
+  }
+
+  
+  function touchStart(event) {
+	startX = event.touches[0].clientX;
+  }
+  
+  function touchEnd(event) {
+	let endX = event.changedTouches[0].clientX;
+	if (startX - endX > 50) {
+	  scrollRight();
+	} else if (endX - startX > 50) {
+	  scrollLeft();
+	}
+	if (currentIndex == 0) {
+	  leftButton.style.display = "none";
+	} else if (currentIndex == images.length - 1) {
+	  rightButton.style.display = "none";
+	} else {
+	  leftButton.style.display = "flex";
+	  rightButton.style.display = "flex";
+	}
+  }
+  
