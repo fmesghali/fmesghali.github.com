@@ -322,12 +322,16 @@ var hammertime = new Hammer(photoGallery);
 
 var marginLeft = 0;
 hammertime.on('swipeleft', function() {
-  marginLeft -= 800;
-  photoGallery.style.marginLeft = marginLeft + 'px';
+  if (marginLeft > -photoGallery.offsetWidth + window.innerWidth - 800) {
+    marginLeft -= 800;
+    photoGallery.style.marginLeft = marginLeft + 'px';
+  }
 });
 hammertime.on('swiperight', function() {
-  marginLeft += 800;
-  photoGallery.style.marginLeft = marginLeft + 'px';
+  if (marginLeft < 0) {
+    marginLeft += 800;
+    photoGallery.style.marginLeft = marginLeft + 'px';
+  }
 });
 
 var hammertime = new Hammer(photoGallery, {
@@ -361,5 +365,6 @@ images.forEach(img => {
 
 
 </script>
+
 </body>
 </html>
