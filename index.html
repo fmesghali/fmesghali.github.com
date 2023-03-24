@@ -351,5 +351,26 @@ function handleTouchEnd(event) {
 	s0.parentNode.insertBefore(s1,s0);
 	})();
 </script>
+
+<script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+
+<script>
+var photoGallery = document.getElementById('photo-gallery');
+var hammertime = new Hammer(photoGallery);
+
+var marginLeft = 0;
+hammertime.on('swipeleft', function() {
+  marginLeft -= 800;
+  photoGallery.style.marginLeft = marginLeft + 'px';
+});
+hammertime.on('swiperight', function() {
+  marginLeft += 800;
+  photoGallery.style.marginLeft = marginLeft + 'px';
+});
+
+
+
+</script>
+
 </body>
 </html>
