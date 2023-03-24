@@ -85,9 +85,19 @@ right: 0;
 				var touchendX = 0;
 				var minSwipePixels = 50; // minimum number of pixels to consider a swipe
 				var photoGallery = document.getElementById('photo-gallery');
+				var currentPosition = 0;
+				var sensitivity = 5; // higher values means less sensitive
 		
 				photoGallery.addEventListener('touchstart', function(event) {
 					touchstartX = event.changedTouches[0].screenX;
+				}, false);
+		
+				photoGallery.addEventListener('touchmove', function(event) {
+					var touchmoveX = event.changedTouches[0].screenX;
+					var distance = touchstartX - touchmoveX;
+					var newPosition = currentPosition - distance / sensitivity;
+					photoGallery.style.transform = "translateX(" + newPosition + "px)";
+					event.preventDefault();
 				}, false);
 		
 				photoGallery.addEventListener('touchend', function(event) {
@@ -98,16 +108,21 @@ right: 0;
 				function handleSwipeGesture() {
 					if (touchendX < touchstartX && touchstartX - touchendX > minSwipePixels) {
 						// swiped left
-						photoGallery.style.marginLeft = '-100%';
+						currentPosition -= photoGallery.offsetWidth;
+						photoGallery.style.transition = "transform 0.3s ease";
+						photoGallery.style.transform = "translateX(" + currentPosition + "px)";
 					}
 		
 					if (touchendX > touchstartX && touchendX - touchstartX > minSwipePixels) {
 						// swiped right
-						photoGallery.style.marginLeft = '0';
+						currentPosition += photoGallery.offsetWidth;
+						photoGallery.style.transition = "transform 0.3s ease";
+						photoGallery.style.transform = "translateX(" + currentPosition + "px)";
 					}
 				}
 			}
 		</script>
+		
 		
 		
 	</head>
