@@ -322,16 +322,25 @@ var hammertime = new Hammer(photoGallery, {
 });
 
 var marginLeft = 0;
+var maxMarginLeft = -(photoGallery.scrollWidth - photoGallery.offsetWidth);
+var imageWidth = 800;
+
 hammertime.on('swipeleft', function(ev) {
-  if (marginLeft > -photoGallery.offsetWidth + window.innerWidth - 800 * (images.length - 1) && ev.distance > 0) {
-    marginLeft -= 800;
+  if (marginLeft > maxMarginLeft && ev.distance > 0) {
+    marginLeft -= imageWidth;
+    if (marginLeft < maxMarginLeft) {
+      marginLeft = maxMarginLeft;
+    }
     photoGallery.style.marginLeft = marginLeft + 'px';
   }
 });
 
 hammertime.on('swiperight', function(ev) {
   if (marginLeft < 0 && ev.distance > 0) {
-    marginLeft += 800;
+    marginLeft += imageWidth;
+    if (marginLeft > 0) {
+      marginLeft = 0;
+    }
     photoGallery.style.marginLeft = marginLeft + 'px';
   }
 });
@@ -344,35 +353,6 @@ images.forEach(img => {
     const win = window.open(imgUrl, '_blank');
     win.focus();
   });
-});
-</script>
-
-<script>
-
-	let isDragging = false;
-let startX;
-let scrollLeft;
-
-gallery.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  startX = e.pageX - gallery.offsetLeft;
-  scrollLeft = gallery.scrollLeft;
-});
-
-gallery.addEventListener('mouseleave', () => {
-  isDragging = false;
-});
-
-gallery.addEventListener('mouseup', () => {
-  isDragging = false;
-});
-
-gallery.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
-  const x = e.pageX - gallery.offsetLeft;
-  const walk = (x - startX) * 2;
-  gallery.scrollLeft = scrollLeft - walk;
 });
 
 </script>
