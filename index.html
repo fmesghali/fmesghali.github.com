@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Optimus Pannonia Houses | Your Ideal Accommodation</title>
-		<link rel="stylesheet" href="style.css">
-		<style>
+<head>
+<title>Optimus Pannonia Houses | Your Ideal Accommodation</title>
+<link rel="stylesheet" href="style.css">
+<style>
 /* CSS for photo gallery */
 #photo-gallery-container {
 position: relative;
@@ -51,12 +51,8 @@ left: 0;
 right: 0;
 }
 
-
-		</style>
-		
-		
-	</head>
-
+</style>
+</head>
 <body>
 	<header>
 		<video src="/photos/logo.mp4" alt="Optimus Pannonia Houses logo" autoplay loop muted  style="max-width: 100%; width: 200px; height: 280px;"></video>	
@@ -220,10 +216,6 @@ function switchLanguage(lang) {
 	  behavior: 'smooth'
 	});
   });
-  
-
-
-
 </script>
 <script>
 const photos = document.querySelectorAll("#photo-gallery img");
@@ -321,9 +313,7 @@ function handleTouchEnd(event) {
 	s0.parentNode.insertBefore(s1,s0);
 	})();
 </script>
-
 <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-
 <script>
 var photoGallery = document.getElementById('photo-gallery');
 var hammertime = new Hammer(photoGallery, {
@@ -354,6 +344,35 @@ images.forEach(img => {
     const win = window.open(imgUrl, '_blank');
     win.focus();
   });
+});
+</script>
+
+<script>
+
+	let isDragging = false;
+let startX;
+let scrollLeft;
+
+gallery.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.pageX - gallery.offsetLeft;
+  scrollLeft = gallery.scrollLeft;
+});
+
+gallery.addEventListener('mouseleave', () => {
+  isDragging = false;
+});
+
+gallery.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+gallery.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX - gallery.offsetLeft;
+  const walk = (x - startX) * 2;
+  gallery.scrollLeft = scrollLeft - walk;
 });
 
 </script>
