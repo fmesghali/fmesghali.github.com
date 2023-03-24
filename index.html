@@ -93,6 +93,9 @@ right: 0;
 			photoGallery.addEventListener('touchstart', function(event) {
 			touchstartX = event.changedTouches[0].screenX;
 			}, false);
+			window.addEventListener('resize', function() {
+ 			galleryWidth = photoGallery.offsetWidth;
+			});
 
 			photoGallery.addEventListener('touchmove', function(event) {
 			var touchmoveX = event.changedTouches[0].screenX;
