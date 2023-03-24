@@ -76,42 +76,8 @@ right: 0;
 }
 
 
-
 		</style>
-		<script>
-			var photoGalleryContainer = document.getElementById('photo-gallery-container');
-			var touchStartX, touchEndX;
-
-			photoGalleryContainer.addEventListener('touchstart', function(event) {
-			  touchStartX = event.touches[0].clientX;
-			});
-
-			photoGalleryContainer.addEventListener('touchmove', function(event) {
-			  touchEndX = event.touches[0].clientX;
-			  var diff = touchStartX - touchEndX;
-			  photoGallery.style.marginLeft = (-1 * slideIndex * slideWidth - diff) + 'px';
-			});
-
-			photoGalleryContainer.addEventListener('touchend', function(event) {
-			  if (touchEndX < touchStartX) {
-			    slideIndex++;
-			  } else if (touchEndX > touchStartX) {
-			    slideIndex--;
-			  }
-			  showSlides();
-			});
-			var images = document.querySelectorAll('#photo-gallery img');
-			images.forEach(function(image) {
-			image.addEventListener('click', function(event) {
-			if (image.classList.contains('enlarged')) {
-			image.classList.remove('enlarged', 'active');
-			} else {
-			image.classList.add('enlarged', 'active');
-			}
-			});
-			});
-
-		</script>
+		
 		
 	</head>
 
