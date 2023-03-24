@@ -111,24 +111,33 @@ right: 0;
 			}, false);
 
 			function handleSwipeGesture() {
-			if (touchendX < touchstartX && touchstartX - touchendX > minSwipePixels) {
+    		if (touchendX < touchstartX && touchstartX - touchendX > minSwipePixels) {
 			// swiped left
-			currentPosition = Math.max(currentPosition - galleryWidth, -(numPhotos - 1) * galleryWidth); // subtract the width of the gallery container
+			currentPosition = Math.max(currentPosition - galleryWidth, -(numPhotos - 1) * galleryWidth);
 			photoGallery.style.transition = "transform 0.3s ease";
-			photoGallery.style.transform = "translateX(" + (currentPosition + galleryWidth / 2) + "px)"; // center photo after swipe
+			photoGallery.style.transform = "translateX(" + (currentPosition + galleryWidth / 2) + "px)";
 			setTimeout(function() {
-			photoGallery.style.transition = "none";
+				photoGallery.style.transition = "none";
+			}, 300);
+			} else if (touchendX > touchstartX && touchendX - touchstartX > minSwipePixels) {
+			// swiped right
+			currentPosition = Math.min(currentPosition + galleryWidth, 0);
+			photoGallery.style.transition = "transform 0.3s ease";
+			photoGallery.style.transform = "translateX(" + (currentPosition - galleryWidth / 2) + "px)";
+			setTimeout(function() {
+				photoGallery.style.transition = "none";
 			}, 300);
 			}
 
-			if (touchendX > touchstartX && touchendX - touchstartX > minSwipePixels) {
-			// swiped right
-			currentPosition = Math.min(currentPosition + galleryWidth, 0); // add the width of the gallery container
-			photoGallery.style.transition = "transform 0.3s ease";
-			photoGallery.style.transform = "translateX(" + (currentPosition - galleryWidth / 2) + "px)"; // center photo after swipe
-			setTimeout(function() {
+			// check if current position is out of bounds
+			if (currentPosition < -(numPhotos - 1) * galleryWidth) {
+			currentPosition = -(numPhotos - 1) * galleryWidth;
 			photoGallery.style.transition = "none";
-			}, 300);
+			photoGallery.style.transform = "translateX(" + (currentPosition + galleryWidth / 2) + "px)";
+			} else if (currentPosition > 0) {
+			currentPosition = 0;
+			photoGallery.style.transition = "none";
+			photoGallery.style.transform = "translateX(" + (currentPosition - galleryWidth / 2) + "px)";
 			}
 			}
 			}
