@@ -76,7 +76,37 @@ right: 0;
 }
 
 
-		</style>	
+		</style>
+		
+		
+		<script>
+			var touchstartX = 0;
+			var touchendX = 0;
+			var minSwipePixels = 50; // minimum number of pixels to consider a swipe
+			var photoGallery = document.getElementById('photo-gallery');
+	
+			photoGallery.addEventListener('touchstart', function(event) {
+				touchstartX = event.changedTouches[0].screenX;
+			}, false);
+	
+			photoGallery.addEventListener('touchend', function(event) {
+				touchendX = event.changedTouches[0].screenX;
+				handleSwipeGesture();
+			}, false);
+	
+			function handleSwipeGesture() {
+				if (touchendX < touchstartX && touchstartX - touchendX > minSwipePixels) {
+					// swiped left
+					photoGallery.style.marginLeft = '-100%';
+				}
+	
+				if (touchendX > touchstartX && touchendX - touchstartX > minSwipePixels) {
+					// swiped right
+					photoGallery.style.marginLeft = '0';
+				}
+			}
+		</script>
+		
 	</head>
 
 <body>
@@ -331,6 +361,10 @@ function handleTouchEnd(event) {
     }
   }
 }
+
+
+
+
 
   </script>
   
