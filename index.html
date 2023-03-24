@@ -107,21 +107,22 @@ window.onload = function() {
         handleSwipeGesture();
     }, false);
 
-    function handleSwipeGesture() {
-        if (touchendX < touchstartX && touchstartX - touchendX > minSwipePixels) {
-            // swiped left
-            currentPosition = Math.max(currentPosition - galleryWidth, -(numPhotos - 1) * galleryWidth); // subtract the width of the gallery container
-            photoGallery.style.transition = "transform 0.3s ease";
-            photoGallery.style.transform = "translateX(" + currentPosition + "px)";
-        }
-
-        if (touchendX > touchstartX && touchendX - touchstartX > minSwipePixels) {
-            // swiped right
-            currentPosition = Math.min(currentPosition + galleryWidth, 0); // add the width of the gallery container
-            photoGallery.style.transition = "transform 0.3s ease";
-            photoGallery.style.transform = "translateX(" + currentPosition + "px)";
-        }
+	function handleSwipeGesture() {
+    if (touchendX < touchstartX && touchstartX - touchendX > minSwipePixels) {
+        // swiped left
+        currentPosition = Math.max(currentPosition - galleryWidth, -(numPhotos - 1) * galleryWidth); // subtract the width of the gallery container
+        photoGallery.style.transition = "transform 0.3s ease";
+        photoGallery.style.transform = "translateX(" + (currentPosition + galleryWidth / 2) + "px)"; // add a margin
     }
+
+    if (touchendX > touchstartX && touchendX - touchstartX > minSwipePixels) {
+        // swiped right
+        currentPosition = Math.min(currentPosition + galleryWidth, 0); // add the width of the gallery container
+        photoGallery.style.transition = "transform 0.3s ease";
+        photoGallery.style.transform = "translateX(" + (currentPosition - galleryWidth / 2) + "px)"; // add a margin
+    }
+}
+
 }
 
 
