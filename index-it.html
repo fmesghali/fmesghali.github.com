@@ -51,21 +51,74 @@ left: 0;
 right: 0;
 }
 
-		</style>
-	</head>
+#language-switcher {
+display: flex;
+flex-direction: row;
+align-items: center;
+position: absolute;
+top: 20px;
+right: 20px;
+}
+
+#language-switcher button {
+border: none;
+background: transparent;
+color: #4a4a4a;
+font-size: 1.5rem;
+margin-left: 10px;
+cursor: pointer;
+}
+
+#language-switcher button:hover {
+color: #000;
+}
+#scroll-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  opacity: 0.8;
+  z-index: 999;
+  cursor: pointer;
+  animation: scroll 1s ease-in-out infinite alternate;
+}
+
+#scroll-icon img {
+  width: 500%;
+  height: auto;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20%);
+  }
+}
+
+
+
+</style>
+</head>
 <body>
-	<header>
-		<video src="/photos/logo.mp4" alt="Optimus Pannonia Houses logo" autoplay loop muted  style="max-width: 100%; width: 200px; height: 280px;"></video>	
-		<h1 id="dynamic-heading"></h1>
-		<div id="language-switcher">
-			<button onclick="switchLanguage('en')">
-				<span>🇬🇧</span> English
-			</button>
-			<button onclick="switchLanguage('it')">
-				<span>🇮🇹</span> Italiano
-			</button>
-		</div>
-	</header>
+<header>
+	<video src="/photos/logo.mp4" alt="Optimus Pannonia Houses logo" autoplay loop muted  style="max-width: 100%; width: 200px; height: 280px;"></video>	
+	<h1 id="dynamic-heading"></h1>
+	<div id="language-switcher">
+		<button onclick="switchLanguage('en')">
+			<span>🇬🇧</span> English
+		</button>
+		<button onclick="switchLanguage('it')" >
+			<span>🇮🇹</span> Italiano
+		</button>
+	</div>
+	<div id="scroll-icon">
+		<img src="scrolling_mousewheel.svg" alt="Scroll icon">
+	  </div>
+</header>
 	<nav>
 		<ul class="navigation">
 			<li><a href="#home">Home</a></li>
@@ -357,6 +410,15 @@ images.forEach(img => {
   });
 });
 
+
+var scrollIcon = document.getElementById("scroll-icon");
+
+scrollIcon.addEventListener("click", function() {
+  window.scrollBy({
+    top: window.innerHeight,
+    behavior: "smooth"
+  });
+});
 </script>
 
 

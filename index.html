@@ -51,171 +51,224 @@ left: 0;
 right: 0;
 }
 
+#language-switcher {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+#language-switcher button {
+	border: none;
+	background: transparent;
+	color: #4a4a4a;
+	font-size: 1.5rem;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+#language-switcher button:hover {
+	color: #000;
+}
+
+#scroll-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  opacity: 0.8;
+  z-index: 999;
+  cursor: pointer;
+  animation: scroll 1s ease-in-out infinite alternate;
+}
+
+#scroll-icon img {
+  width: 500%;
+  height: auto;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20%);
+  }
+}
+
+
+
 </style>
 </head>
 <body>
-	<header>
-		<video src="/photos/logo.mp4" alt="Optimus Pannonia Houses logo" autoplay loop muted  style="max-width: 100%; width: 200px; height: 280px;"></video>	
-		<h1 id="dynamic-heading"></h1>
-		<div id="language-switcher">
-			<button onclick="switchLanguage('en')">
-				<span>🇬🇧</span> English
-			</button>
-			<button onclick="switchLanguage('it')" >
-				<span>🇮🇹</span> Italiano
-			</button>
-		</div>
+<header>
+	<video src="/photos/logo.mp4" alt="Optimus Pannonia Houses logo" autoplay loop muted  style="max-width: 100%; width: 200px; height: 280px;"></video>	
+	<h1 id="dynamic-heading"></h1>
+	<div id="language-switcher">
+		<button onclick="switchLanguage('en')">
+			<span>🇬🇧</span> English
+		</button>
+		<button onclick="switchLanguage('it')" >
+			<span>🇮🇹</span> Italiano
+		</button>
+	</div>
+	<div id="scroll-icon">
+		<img src="scrolling_mousewheel.svg" alt="Scroll icon">
+	  </div>
+</header>
+<nav>
+	<ul class="navigation">
+		<li><a href="#home">Home</a></li>
+		<li><a href="#gallery">Gallery</a></li>
+		<li><a href="#where-we-are">Where We Are</a></li>
+		<li><a href="#how-to-book">How to Book</a></li>
+		<li><a href="#contacts">Contacts</a></li>
+	</ul>
+</nav>
+<main>
+	<section id="home">
+		<h2 style="font-family: 'Lucida Console', monospace; font-size: 3rem; font-weight: bold; color: #4a4a4a; text-shadow: 1px 1px 1px #dcdcdc; text-align: center; margin-top: 50px;">Welcome to Optimus Pannonia House</h2>
+		<p style="margin-top: 20px; text-align: center;">We offer the best accommodations for your stay. Located right in the heart of Rome’s historical centre,
+
+			Colosseum and Domus Area only 1 km away as for Baths of Caracalla and Circus Massimo.
 			
-	</header>
-	<nav>
-		<ul class="navigation">
-			<li><a href="#home">Home</a></li>
-			<li><a href="#gallery">Gallery</a></li>
-			<li><a href="#where-we-are">Where We Are</a></li>
-			<li><a href="#how-to-book">How to Book</a></li>
-			<li><a href="#contacts">Contacts</a></li>
-		</ul>
-	</nav>
-	<main>
-		<section id="home">
-			<h2 style="font-family: 'Lucida Console', monospace; font-size: 3rem; font-weight: bold; color: #4a4a4a; text-shadow: 1px 1px 1px #dcdcdc; text-align: center; margin-top: 50px;">Welcome to Optimus Pannonia House</h2>
-			<p style="margin-top: 20px; text-align: center;">We offer the best accommodations for your stay. Located right in the heart of Rome’s historical centre,
+			The apartment is excellently connected by subway (line A) and main bus lines and it's located in one of the best neighborhoods of Rome with bars, restaurants, shops and green areas.
+			
+			The best choice for your travel!
+		</p>
 
-				Colosseum and Domus Area only 1 km away as for Baths of Caracalla and Circus Massimo.
-				
-				The apartment is excellently connected by subway (line A) and main bus lines and it's located in one of the best neighborhoods of Rome with bars, restaurants, shops and green areas.
-				
-				The best choice for your travel!
-			</p>
+		<p> What you really can't miss in Rome:
 
-			<p> What you really can't miss in Rome:
-
-				<ul>
-					<li>Visit the Roman Forum and the Colosseum.</li>
-					<li>Discover the greatness of the Pantheon.</li>
-					<li>Travel back in time through the Via Appia.</li>
-					<li>Wonder at the world's greatest masterpieces of Michelangelo, Raphael or Caravaggio.</li>
-					<li>Admire the Sistine Chapple at the Vatican.</li>
-					<li>Walk down the Spanish Steps like a top model.</li>
-					<li>Throw a coin in the famous Trevi Fountain.</li>
-					<li>Taste genuine italian dishes like pasta, pizza and icecreams.</li>
-				</ul>
-			</p>
-		</section>
-		<hr>
-		<section id="gallery">
-			<h2>Gallery</h2>
-			<p>Check out our rooms:</p>
-			<div id="photo-gallery-container">
-				<div id="photo-gallery">
-				  <div class="slide"><img src="/photos/1.jpg" alt="Room photo"></div>
-				  <div class="slide"><img src="/photos/2.jpg" alt="Room photo"></div>
-				  <div class="slide"><img src="/photos/3.jpg" alt="Room photo"></div>
-				  <div class="slide"><img src="/photos/4.jpg" alt="Room photo"></div>
-				  <div class="slide"><img src="/photos/5.jpg" alt="Room photo"></div>
-				  <div class="slide"><img src="/photos/6.jpg" alt="Room photo"></div>
-				  <div class="slide"><img src="/photos/7.jpg" alt="Room photo"></div>
-				  <div class="slide"><img src="/photos/8.jpg" alt="Room photo"></div>
-				  <div class="slide"><img src="/photos/9.jpg" alt="Room photo"></div>
-				  <div class="slide"><img src="/photos/10.jpg" alt="Room photo"></div>
-				</div>
-				<button id="scroll-left-button">&#8249;</button>
-				<button id="scroll-right-button">&#8250;</button>
-			  </div>
-		</section>
-		<hr>
-		<section id="where-we-are">
-			<h2>Where Are We?</h2>
-			<p>Find us on the map:</p>
-			<div id="map">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.5920456553686!2d12.501394!3d41.880122899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61c3f4d0365f%3A0xe20ee51b0d61d0e2!2sLargo%20Pannonia%2C%201%2C%2000183%20Roma%20RM%2C%20Italy!5e0!3m2!1sen!2spl!4v1679473744750!5m2!1sen!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-			</div>
-		</section>
-		<hr>
-		<section id="how-to-book">
-			<h2>How to Book</h2>
-			<p>To book a room, please call us at +39 339 77 33 000 or email us at info@optimuspannonia.com.</p>
-		</section>
-		<hr>
-		<section id="contacts">
-			<h2>Contacts</h2>
 			<ul>
-				<li>Address: Largo Pannonia, 1, 00183, Roma, Italy</li>
-				<li>Phone: +39 339 77 33 000</li>
-				<li>Email: info@optimuspannonia.com</li>
+				<li>Visit the Roman Forum and the Colosseum.</li>
+				<li>Discover the greatness of the Pantheon.</li>
+				<li>Travel back in time through the Via Appia.</li>
+				<li>Wonder at the world's greatest masterpieces of Michelangelo, Raphael or Caravaggio.</li>
+				<li>Admire the Sistine Chapple at the Vatican.</li>
+				<li>Walk down the Spanish Steps like a top model.</li>
+				<li>Throw a coin in the famous Trevi Fountain.</li>
+				<li>Taste genuine italian dishes like pasta, pizza and icecreams.</li>
 			</ul>
-		</section>
-		<hr>
-		<section id="links">
-			<h2>Links</h2>
-			<ul id="link-list">
-			</ul>
-		</section>
-		<hr>
-		<section id="urgent-info">
-			<h2>Need urgent information?</h2>
-			<p>Contact us via our live chat for immediate assistance.</p>
-		</section>
-	</main>
-	<script src="app.js"></script>
+		</p>
+	</section>
+	<hr>
+	<section id="gallery">
+		<h2>Gallery</h2>
+		<p>Check out our rooms:</p>
+		<div id="photo-gallery-container">
+			<div id="photo-gallery">
+				<div class="slide"><img src="/photos/1.jpg" alt="Room photo"></div>
+				<div class="slide"><img src="/photos/2.jpg" alt="Room photo"></div>
+				<div class="slide"><img src="/photos/3.jpg" alt="Room photo"></div>
+				<div class="slide"><img src="/photos/4.jpg" alt="Room photo"></div>
+				<div class="slide"><img src="/photos/5.jpg" alt="Room photo"></div>
+				<div class="slide"><img src="/photos/6.jpg" alt="Room photo"></div>
+				<div class="slide"><img src="/photos/7.jpg" alt="Room photo"></div>
+				<div class="slide"><img src="/photos/8.jpg" alt="Room photo"></div>
+				<div class="slide"><img src="/photos/9.jpg" alt="Room photo"></div>
+				<div class="slide"><img src="/photos/10.jpg" alt="Room photo"></div>
+			</div>
+			<button id="scroll-left-button">&#8249;</button>
+			<button id="scroll-right-button">&#8250;</button>
+			</div>
+	</section>
+	<hr>
+	<section id="where-we-are">
+		<h2>Where Are We?</h2>
+		<p>Find us on the map:</p>
+		<div id="map">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.5920456553686!2d12.501394!3d41.880122899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61c3f4d0365f%3A0xe20ee51b0d61d0e2!2sLargo%20Pannonia%2C%201%2C%2000183%20Roma%20RM%2C%20Italy!5e0!3m2!1sen!2spl!4v1679473744750!5m2!1sen!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+	</section>
+	<hr>
+	<section id="how-to-book">
+		<h2>How to Book</h2>
+		<p>To book a room, please call us at +39 339 77 33 000 or email us at info@optimuspannonia.com.</p>
+	</section>
+	<hr>
+	<section id="contacts">
+		<h2>Contacts</h2>
+		<ul>
+			<li>Address: Largo Pannonia, 1, 00183, Roma, Italy</li>
+			<li>Phone: +39 339 77 33 000</li>
+			<li>Email: info@optimuspannonia.com</li>
+		</ul>
+	</section>
+	<hr>
+	<section id="links">
+		<h2>Links</h2>
+		<ul id="link-list">
+		</ul>
+	</section>
+	<hr>
+	<section id="urgent-info">
+		<h2>Need urgent information?</h2>
+		<p>Contact us via our live chat for immediate assistance.</p>
+	</section>
+</main>
+<script src="app.js"></script>
 
 <script type="text/javascript">
-	const links = [
-	{
-		label: 'Google',
-		url: 'https://www.google.com'
-	},
-	{
-		label: 'Facebook',
-		url: 'https://www.facebook.com'
-	},
-	{
-		label: 'Twitter',
-		url: 'https://www.twitter.com'
-	}
+const links = [
+{
+	label: 'Google',
+	url: 'https://www.google.com'
+},
+{
+	label: 'Facebook',
+	url: 'https://www.facebook.com'
+},
+{
+	label: 'Twitter',
+	url: 'https://www.twitter.com'
+}
 ];
 
 const linkList = document.getElementById('link-list');
 
 links.forEach(link => {
-	const listItem = document.createElement('li');
-	const anchor = document.createElement('a');
-	anchor.textContent = link.label;
-	anchor.setAttribute('href', link.url);
-	listItem.appendChild(anchor);
-	linkList.appendChild(listItem);
+const listItem = document.createElement('li');
+const anchor = document.createElement('a');
+anchor.textContent = link.label;
+anchor.setAttribute('href', link.url);
+listItem.appendChild(anchor);
+linkList.appendChild(listItem);
 });
 
 
 function switchLanguage(lang) {
-    if (lang === 'it') {
-      window.location.href = 'index-it.html';
-    }
-    if (lang === 'en') {
-        window.location.href = 'index.html';
-      }
-    // add more conditions for other languages if desired
-  }
+if (lang === 'it') {
+	window.location.href = 'index-it.html';
+}
+if (lang === 'en') {
+	window.location.href = 'index.html';
+	}
+// add more conditions for other languages if desired
+}
 
-  const scrollLeftButton = document.querySelector('#scroll-left-button');
-  const scrollRightButton = document.querySelector('#scroll-right-button');
-  const galleryContainer = document.querySelector('#photo-gallery');
-  const scrollAmount = 500;
-  
-  // Add event listeners to the buttons
-  scrollLeftButton.addEventListener('click', () => {
-	galleryContainer.scroll({
-	  left: galleryContainer.scrollLeft - scrollAmount,
-	  behavior: 'smooth'
-	});
-  });
-  
-  scrollRightButton.addEventListener('click', () => {
-	galleryContainer.scroll({
-	  left: galleryContainer.scrollLeft + scrollAmount,
-	  behavior: 'smooth'
-	});
-  });
+const scrollLeftButton = document.querySelector('#scroll-left-button');
+const scrollRightButton = document.querySelector('#scroll-right-button');
+const galleryContainer = document.querySelector('#photo-gallery');
+const scrollAmount = 500;
+
+// Add event listeners to the buttons
+scrollLeftButton.addEventListener('click', () => {
+galleryContainer.scroll({
+	left: galleryContainer.scrollLeft - scrollAmount,
+	behavior: 'smooth'
+});
+});
+
+scrollRightButton.addEventListener('click', () => {
+galleryContainer.scroll({
+	left: galleryContainer.scrollLeft + scrollAmount,
+	behavior: 'smooth'
+});
+});
 </script>
 <script>
 const photos = document.querySelectorAll("#photo-gallery img");
@@ -223,102 +276,102 @@ let touchStartX = null;
 let touchStartY = null;
 
 photos.forEach(photo => {
-  photo.addEventListener("click", toggleEnlarged);
-  photo.addEventListener("touchstart", handleTouchStart);
-  photo.addEventListener("touchmove", handleTouchMove);
-  photo.addEventListener("touchend", handleTouchEnd);
+photo.addEventListener("click", toggleEnlarged);
+photo.addEventListener("touchstart", handleTouchStart);
+photo.addEventListener("touchmove", handleTouchMove);
+photo.addEventListener("touchend", handleTouchEnd);
 });
 
 document.addEventListener("keydown", function(event) {
-  if (event.keyCode === 27) {
-    photos.forEach(photo => {
-      photo.classList.remove("enlarged");
-    });
-  }
+if (event.keyCode === 27) {
+photos.forEach(photo => {
+	photo.classList.remove("enlarged");
+});
+}
 });
 
 document.addEventListener("click", function(event) {
-  const isPhoto = event.target.closest("#photo-gallery img");
-  if (!isPhoto) {
-    photos.forEach(photo => {
-      photo.classList.remove("enlarged");
-    });
-  }
+const isPhoto = event.target.closest("#photo-gallery img");
+if (!isPhoto) {
+photos.forEach(photo => {
+	photo.classList.remove("enlarged");
+});
+}
 });
 
 function toggleEnlarged() {
-  if (this.classList.contains("enlarged")) {
-    this.classList.remove("enlarged");
-  } else {
-    this.classList.add("enlarged");
-  }
+if (this.classList.contains("enlarged")) {
+this.classList.remove("enlarged");
+} else {
+this.classList.add("enlarged");
+}
 }
 
 function handleTouchStart(event) {
-  touchStartX = event.touches[0].clientX;
-  touchStartY = event.touches[0].clientY;
+touchStartX = event.touches[0].clientX;
+touchStartY = event.touches[0].clientY;
 }
 
 function handleTouchMove(event) {
-  if (touchStartX === null || touchStartY === null) {
-    return;
-  }
-  const touchCurrentX = event.touches[0].clientX;
-  const touchCurrentY = event.touches[0].clientY;
-  const touchDistanceX = touchCurrentX - touchStartX;
-  const touchDistanceY = touchCurrentY - touchStartY;
-  if (Math.abs(touchDistanceX) > Math.abs(touchDistanceY)) {
-    // Horizontal slide detected, prevent default scrolling
-    event.preventDefault();
-  }
+if (touchStartX === null || touchStartY === null) {
+return;
+}
+const touchCurrentX = event.touches[0].clientX;
+const touchCurrentY = event.touches[0].clientY;
+const touchDistanceX = touchCurrentX - touchStartX;
+const touchDistanceY = touchCurrentY - touchStartY;
+if (Math.abs(touchDistanceX) > Math.abs(touchDistanceY)) {
+// Horizontal slide detected, prevent default scrolling
+event.preventDefault();
+}
 }
 
 function handleTouchEnd(event) {
-  const touchEndX = event.changedTouches[0].clientX;
-  const touchEndY = event.changedTouches[0].clientY;
-  const touchDistanceX = touchEndX - touchStartX;
-  const touchDistanceY = touchEndY - touchStartY;
-  touchStartX = null;
-  touchStartY = null;
-  const threshold = 50; // Minimum distance required for swipe
+const touchEndX = event.changedTouches[0].clientX;
+const touchEndY = event.changedTouches[0].clientY;
+const touchDistanceX = touchEndX - touchStartX;
+const touchDistanceY = touchEndY - touchStartY;
+touchStartX = null;
+touchStartY = null;
+const threshold = 50; // Minimum distance required for swipe
 
-  if (Math.abs(touchDistanceX) > threshold && Math.abs(touchDistanceY) < threshold) {
-    // Horizontal swipe detected
-    if (touchDistanceX > 0) {
-      // Swipe to the right, show the previous photo
-      const previousPhoto = this.previousElementSibling;
-      if (previousPhoto) {
-        previousPhoto.classList.add("enlarged");
-        this.classList.remove("enlarged");
-      }
-    } else {
-      // Swipe to the left, show the next photo
-      const nextPhoto = this.nextElementSibling;
-      if (nextPhoto) {
-        nextPhoto.classList.add("enlarged");
-        this.classList.remove("enlarged");
-      }
-    }
-  }
+if (Math.abs(touchDistanceX) > threshold && Math.abs(touchDistanceY) < threshold) {
+// Horizontal swipe detected
+if (touchDistanceX > 0) {
+	// Swipe to the right, show the previous photo
+	const previousPhoto = this.previousElementSibling;
+	if (previousPhoto) {
+	previousPhoto.classList.add("enlarged");
+	this.classList.remove("enlarged");
+	}
+} else {
+	// Swipe to the left, show the next photo
+	const nextPhoto = this.nextElementSibling;
+	if (nextPhoto) {
+	nextPhoto.classList.add("enlarged");
+	this.classList.remove("enlarged");
+	}
+}
+}
 }
 </script>  
 <script type="text/javascript">
-	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-	(function(){
-	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-	s1.async=true;
-	s1.src='https://embed.tawk.to/641afe8d31ebfa0fe7f40c78/1gs4n4mo6';
-	s1.charset='UTF-8';
-	s1.setAttribute('crossorigin','*');
-	s0.parentNode.insertBefore(s1,s0);
-	})();
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/641afe8d31ebfa0fe7f40c78/1gs4n4mo6';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 </script>
 <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 <script>
 var photoGallery = document.getElementById('photo-gallery');
 var hammertime = new Hammer(photoGallery, {
-  swipeVelocityX: 0.2,
-  swipeThreshold: 30
+swipeVelocityX: 0.2,
+swipeThreshold: 30
 });
 
 var marginLeft = 0;
@@ -326,35 +379,43 @@ var maxMarginLeft = -(photoGallery.scrollWidth - photoGallery.offsetWidth);
 var imageWidth = 800;
 
 hammertime.on('swipeleft', function(ev) {
-  if (marginLeft > maxMarginLeft && ev.distance > 0) {
-    marginLeft -= imageWidth;
-    if (marginLeft < maxMarginLeft) {
-      marginLeft = maxMarginLeft;
-    }
-    photoGallery.style.marginLeft = marginLeft + 'px';
-  }
+if (marginLeft > maxMarginLeft && ev.distance > 0) {
+marginLeft -= imageWidth;
+if (marginLeft < maxMarginLeft) {
+	marginLeft = maxMarginLeft;
+}
+photoGallery.style.marginLeft = marginLeft + 'px';
+}
 });
 
 hammertime.on('swiperight', function(ev) {
-  if (marginLeft < 0 && ev.distance > 0) {
-    marginLeft += imageWidth;
-    if (marginLeft > 0) {
-      marginLeft = 0;
-    }
-    photoGallery.style.marginLeft = marginLeft + 'px';
-  }
+if (marginLeft < 0 && ev.distance > 0) {
+marginLeft += imageWidth;
+if (marginLeft > 0) {
+	marginLeft = 0;
+}
+photoGallery.style.marginLeft = marginLeft + 'px';
+}
 });
 
 const images = document.querySelectorAll('#photo-gallery img');
 
 images.forEach(img => {
-  img.addEventListener('click', function() {
-    const imgUrl = this.getAttribute('src');
-    const win = window.open(imgUrl, '_blank');
-    win.focus();
-  });
+img.addEventListener('click', function() {
+const imgUrl = this.getAttribute('src');
+const win = window.open(imgUrl, '_blank');
+win.focus();
+});
 });
 
+var scrollIcon = document.getElementById("scroll-icon");
+
+scrollIcon.addEventListener("click", function() {
+  window.scrollBy({
+    top: window.innerHeight,
+    behavior: "smooth"
+  });
+});
 </script>
 </body>
 </html>
