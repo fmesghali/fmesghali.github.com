@@ -224,3 +224,60 @@ header {
 	  100% { transform: rotate(360deg); }
 	}
 	
+/* speech bubble style */
+#speech-bubble {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+#intro-image:hover + #speech-bubble {
+	display: block;
+}
+
+.pointer {
+	height: 40px;
+	width: 40px;
+	background: ivory;
+	margin: 0 auto;
+	transform: rotate(45deg);
+	border-radius: 0 0 12px 0;
+	margin-top: -22px;
+	position: relative;
+	left: calc(0.5vw - 50px);
+}
+
+.bubble {
+	height: auto;
+	width: 40%;
+	min-width: 200px;
+	background: ivory;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	border-radius: 20px;
+	margin-top: 50px;
+	font-size: 20px;
+	text-align: center;
+	max-height: 200px;
+	padding-bottom: 40px; /* add padding bottom */
+}
+
+.bubble .text {
+	font-family: "Lucida Sans Typewriter", "Lucida Console", monospace;
+	color: black;
+	margin-top: 10px;
+	text-align: center;
+	display: inline-block;
+	max-width: 90%;
+}
+
+/* reduce font size for smaller screens */
+@media screen and (max-width: 768px) {
+	.bubble {
+		font-size: 16px;
+	}
+}
