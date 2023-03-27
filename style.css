@@ -274,3 +274,29 @@ header {
 	display: inline-block;
 	max-width: 90%;
 }
+
+
+.amenities-container {
+	background-color: #f2f2f2;
+	padding: 10px;
+  }
+  
+  .amenities-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .amenities-list li {
+	margin-bottom: 5px;
+	position: relative;
+	padding-left: 20px;
+  }
+  
+  .amenities-list li:before {
+	content: "\2022";
+	position: absolute;
+	left: 0;
+	color: #333;
+  }
+  
