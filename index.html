@@ -355,26 +355,6 @@ setTimeout(function() {
   document.getElementById("loading-screen").style.display = "none";
 }, 1800);
 
-const introImage = document.getElementById('intro-image');
-const speechBubble = document.getElementById('speech-bubble');
-
-speechBubble.style.display = 'none'; // Hide the speech bubble by default
-
-introImage.addEventListener('touchstart', (event) => {
-  event.stopPropagation(); // Prevent the touch event from propagating to the document
-});
-
-introImage.addEventListener('click', (event) => {
-  event.stopPropagation(); // Prevent the click event from propagating to the document
-});
-
-document.addEventListener('touchstart', () => {
-  speechBubble.style.display = 'block'; // Show the speech bubble on touchstart event outside the intro image
-});
-
-document.addEventListener('click', () => {
-  speechBubble.style.display = 'block'; // Show the speech bubble on click event outside the intro image
-});
 
 
 </script>

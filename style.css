@@ -264,6 +264,7 @@ header {
 	text-align: center;
 	max-height: 200px;
 	padding-bottom: 40px; /* add padding bottom */
+	word-wrap: break-word; /* add word-wrap property */
 }
 
 .bubble .text {
@@ -274,6 +275,7 @@ header {
 	display: inline-block;
 	max-width: 90%;
 }
+
 
 
 .amenities-container {
@@ -300,3 +302,4 @@ header {
 	color: #333;
   }
   
+
