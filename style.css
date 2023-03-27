@@ -278,6 +278,9 @@ header {
 /* reduce font size for smaller screens */
 @media screen and (max-width: 768px) {
 	.bubble {
-		font-size: 10px;
+	font-size: 10px;
 	}
-}
+	.bubble .text {
+	font-size: 12px;
+	}
+	}
