@@ -226,57 +226,77 @@ header {
 	
 /* speech bubble style */
 #speech-bubble {
-	display: none;
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	transform: translate(-50%, 0);
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 #intro-image:hover + #speech-bubble {
-	display: block;
+    display: block;
 }
 
 .pointer {
-	height: 40px;
-	width: 40px;
-	background: ivory;
-	margin: 0 auto;
-	transform: rotate(45deg);
-	border-radius: 0 0 12px 0;
-	margin-top: -22px;
-	position: relative;
-	left: calc(0.5vw - 50px);
+    height: 40px;
+    width: 40px;
+    background: ivory;
+    margin: 0 auto;
+    transform: rotate(45deg);
+    border-radius: 0 0 12px 0;
+    margin-top: -22px;
+    position: relative;
+    left: calc(0.5vw - 50px);
 }
 
 .bubble {
-	height: auto;
-	width: 40%;
-	min-width: 200px;
-	background: ivory;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 auto;
-	border-radius: 20px;
-	margin-top: 50px;
-	font-size: 20px;
-	text-align: center;
-	max-height: 200px;
-	padding-bottom: 40px; /* add padding bottom */
-	word-wrap: break-word; /* add word-wrap property */
+    height: auto;
+    width: 40%;
+    min-width: 200px;
+    background: ivory;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 50px;
+    font-size: 20px;
+    text-align: center;
+    max-height: 200px;
+    padding-bottom: 40px; /* add padding bottom */
+    word-wrap: break-word; /* add word-wrap property */
 }
 
 .bubble .text {
-	font-family: "Lucida Sans Typewriter", "Lucida Console", monospace;
-	color: black;
-	margin-top: 10px;
-	text-align: center;
-	display: inline-block;
-	max-width: 90%;
+    font-family: "Lucida Sans Typewriter", "Lucida Console", monospace;
+    color: black;
+    margin-top: 10px;
+    text-align: center;
+    display: inline-block;
+    max-width: 90%;
+    overflow-wrap: break-word;
 }
 
+@media (max-width: 1000px) {
+    /* For screens less than 768px wide (mobile phones) */
+    #intro-image {
+        float: left;
+    }
+    
+    #speech-bubble {
+        top: auto;
+        bottom: 100%;
+        left: auto;
+        right: calc(100% + 20px);
+        transform: none;
+    }
+	
+	#intro-image:hover + #speech-bubble {
+		display: block;
+	}
 
+
+/* amenities list */
 
 .amenities-container {
 	background-color: #f2f2f2;
