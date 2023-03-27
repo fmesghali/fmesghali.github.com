@@ -338,6 +338,17 @@ setTimeout(function() {
   document.getElementById("loading-screen").style.display = "none";
 }, 1800);
 
+const introImage = document.getElementById('intro-image');
+const speechBubble = document.getElementById('speech-bubble');
+
+introImage.addEventListener('touchstart', () => {
+  speechBubble.style.display = 'block';
+});
+
+introImage.addEventListener('click', () => {
+  speechBubble.style.display = 'block';
+});
+
 
 </script>
 </body>
