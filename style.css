@@ -274,9 +274,8 @@ header {
 	display: inline-block;
 	max-width: 90%;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
 	#speech-bubble {
-	  display: none;
+	display: none;
 	}
-  }
-  
+	}
