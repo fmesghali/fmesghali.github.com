@@ -92,3 +92,135 @@ header {
 	font-weight: bold;
 	color: rgb(0, 0, 0);
 }
+
+
+/* CSS for photo gallery */
+#photo-gallery-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	}
+	#photo-gallery {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: hidden;
+	margin: 20px 0;
+	height: 550px;
+	transition: margin-left 0.3s ease;
+	}
+	#photo-gallery img {
+	max-width: 800px;
+	max-height: 800px;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+	cursor: pointer;
+	}
+	
+	#scroll-left-button,
+	#scroll-right-button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	font-size: 1.5rem;
+	padding: 20px;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	}
+	
+	#scroll-left-button {
+	left: 0;
+	}
+	
+	#scroll-right-button {
+	right: 0;
+	}
+	
+	#language-switcher {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+	}
+	
+	#language-switcher button {
+		border: none;
+		background: transparent;
+		color: #4a4a4a;
+		font-size: 1.5rem;
+		margin-left: 10px;
+		cursor: pointer;
+	}
+	
+	#language-switcher button:hover {
+		color: #000;
+	}
+	
+	#scroll-icon {
+	  position: fixed;
+	  bottom: 20px;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  width: 80px;
+	  height: 80px;
+	  opacity: 0.8;
+	  z-index: 999;
+	  cursor: pointer;
+	  animation: scroll 1s ease-in-out infinite alternate;
+	}
+	
+	#scroll-icon img {
+	  width: 500%;
+	  height: auto;
+	}
+	
+	#new-section img {
+	  width: 90%;
+	  height: auto;
+	  display: block;
+	  margin: 0 auto;
+	}
+	
+	@keyframes scroll {
+	  from {
+		transform: translateY(0);
+	  }
+	  to {
+		transform: translateY(20%);
+	  }
+	}
+	
+	#loading-screen {
+	  position: fixed;
+	  z-index: 9999;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  background-color: #fff;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+	
+	.loader {
+	  border: 16px solid #f3f3f3;
+	  border-top: 16px solid #3498db;
+	  border-radius: 50%;
+	  width: 120px;
+	  height: 120px;
+	  animation: spin 2s linear infinite;
+	}
+	
+	@keyframes spin {
+	  0% { transform: rotate(0deg); }
+	  100% { transform: rotate(360deg); }
+	}
+	
