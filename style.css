@@ -59,11 +59,14 @@ html {
 
 /* For screens up to 480px wide (typical width of mobile phones) */
 @media (max-width: 480px) {
-	.parallax_section h2 {
-	  font-size: 60px; /* adjust as needed */
-	  text-align: center;
-	}
+	body {
+		font-size: 18px; /* set the desired font size here */
+	  }
+  .parallax_section h2 {
+    font-size: 60px; /* adjust as needed */
+    text-align: center;
   }
+}
 
 header {
 	display: flex;
@@ -291,23 +294,6 @@ header video {
     font-size: 1rem;
     text-align: center;
 }
-
-@media screen and (min-width: 768px) {
-    /* for screens larger than 768px wide */
-    #speech-bubble {
-        top: calc(100% + 2em); /* add 2em for some spacing */
-        font-size: 1.2rem;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    /* for screens larger than 1024px wide */
-    #speech-bubble {
-        top: calc(100% + 3em); /* add 3em for some spacing */
-        font-size: 1.5rem;
-    }
-}
-
 
 #intro-image:hover + #speech-bubble {
     display: block;
