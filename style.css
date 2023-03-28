@@ -279,23 +279,7 @@ header {
     overflow-wrap: break-word;
 }
 
-@media (max-width: 900px) {
-    /* For screens less than 768px wide (mobile phones) */
-    #intro-image {
-        float: left;
-    }
-    
-    #speech-bubble {
-        top: auto;
-        bottom: 100%;
-        left: auto;
-        right: calc(100% + 20px);
-        transform: none;
-    }
-	
-	#intro-image:hover + #speech-bubble {
-		display: block;
-	}
+
 
 
 
@@ -326,3 +310,53 @@ header {
   }
   
 
+/* Small screens */
+@media only screen and (max-width: 600px) {
+	header {
+	  flex-direction: column;
+	  padding: 10px;
+	}
+	nav ul {
+	  flex-direction: column;
+	}
+	nav a {
+	  padding: 10px 0;
+	}
+	main {
+	  padding: 10px;
+	}
+  }
+  
+  /* Medium screens */
+  @media only screen and (min-width: 601px) and (max-width: 960px) {
+	header {
+	  flex-direction: column;
+	  padding: 10px;
+	}
+	nav ul {
+	  flex-direction: column;
+	}
+	nav a {
+	  padding: 10px 0;
+	}
+	main {
+	  padding: 10px;
+	}
+  }
+  
+  /* Large screens */
+  @media only screen and (min-width: 961px) {
+	header {
+	  padding: 20px;
+	}
+	nav ul {
+	  flex-direction: row;
+	}
+	nav a {
+	  padding: 20px;
+	}
+	main {
+	  padding: 20px;
+	}
+  }
+  
