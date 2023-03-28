@@ -298,7 +298,6 @@ header {
     overflow-wrap: break-word;
 }
 
-@media (max-width: 1000px) {
 @media (max-width: 900px) {
     /* For screens less than 768px wide (mobile phones) */
     #intro-image {
@@ -317,7 +316,7 @@ header {
 		display: block;
 	}
 
-
+}
 
 /* amenities list */
 
