@@ -229,9 +229,12 @@ header {
 #speech-bubble {
     display: none;
     position: absolute;
-    top: 120%;
+    top: calc(120% + 20px); /* add 20px for some spacing */
     left: 50%;
     transform: translate(-50%, 0);
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
 }
 
 #intro-image:hover + #speech-bubble {
