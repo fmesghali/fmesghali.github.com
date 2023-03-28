@@ -229,7 +229,7 @@ header {
 #speech-bubble {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 120%;
     left: 50%;
     transform: translate(-50%, 0);
 }
@@ -252,7 +252,7 @@ header {
 
 .bubble {
     height: auto;
-    width: 40%;
+    width: 30%;
     min-width: 200px;
     background: ivory;
     display: flex;
@@ -261,10 +261,10 @@ header {
     margin: 0 auto;
     border-radius: 20px;
     margin-top: 50px;
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     max-height: 200px;
-    padding-bottom: 40px; /* add padding bottom */
+    padding-bottom: 30px; /* add padding bottom */
     word-wrap: break-word; /* add word-wrap property */
 }
 
