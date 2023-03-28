@@ -59,14 +59,16 @@ header video {
 	width: 50%;
 	height: auto;
   }
-
+  
 header {
 	background-image: url('land.jpg');
 	background-size: cover;
 	background-position: center;
 	opacity: 0.95;
-	padding-bottom: 150px;
+	padding-bottom: 80px;
   }
+
+  
 
 .navigation li {
 	margin: 0 12px;
