@@ -94,60 +94,6 @@ header {
 }
 
 
-/* Styles for screens smaller than 600 pixels */
-@media screen and (max-width: 600px) {
-	header {
-		padding: 10px;
-	}
-
-	nav {
-		display: none;
-	}
-
-	main {
-		padding: 10px;
-	}
-
-	header video {
-		width: 100%;
-	}
-
-	.navigation li {
-		margin: 0 5px;
-	}
-
-	#photo-gallery img {
-		max-width: 100%;
-		max-height: 100%;
-	}
-}
-
-/* Styles for screens between 600px and 900px */
-@media screen and (min-width: 600px) and (max-width: 900px) {
-	header {
-	padding: 15px;
-	}
-
-}
-
-/* Styles for screens larger than 1200px */
-@media screen and (min-width: 1200px) {
-header {
-padding: 30px;
-}
-
-main {
-	padding: 40px;
-}
-
-#photo-gallery img {
-	max-width: 50%;
-	max-height: 50%;
-}
-
-}
-
-
 /* CSS for photo gallery */
 #photo-gallery-container {
 	position: relative;
@@ -278,8 +224,6 @@ main {
 	  100% { transform: rotate(360deg); }
 	}
 	
-
-
 /* speech bubble style */
 #speech-bubble {
     display: none;
@@ -333,7 +277,23 @@ main {
     overflow-wrap: break-word;
 }
 
-
+@media (max-width: 900px) {
+    /* For screens less than 768px wide (mobile phones) */
+    #intro-image {
+        float: left;
+    }
+    
+    #speech-bubble {
+        top: auto;
+        bottom: 100%;
+        left: auto;
+        right: calc(100% + 20px);
+        transform: none;
+    }
+	
+	#intro-image:hover + #speech-bubble {
+		display: block;
+	}
 
 
 
