@@ -59,13 +59,13 @@ header video {
 	width: 50%;
 	height: auto;
   }
-  
+
 header {
 	background-image: url('land.jpg');
 	background-size: cover;
 	background-position: center;
 	opacity: 0.95;
-	padding-bottom: 120px;
+	padding-bottom: 150px;
   }
 
 .navigation li {
@@ -277,6 +277,27 @@ header {
     overflow-wrap: break-word;
 }
 
+@media (max-width: 1000px) {
+@media (max-width: 900px) {
+    /* For screens less than 768px wide (mobile phones) */
+    #intro-image {
+        float: left;
+    }
+    
+    #speech-bubble {
+        top: auto;
+        bottom: 100%;
+        left: auto;
+        right: calc(100% + 20px);
+        transform: none;
+    }
+	
+	#intro-image:hover + #speech-bubble {
+		display: block;
+	}
+
+
+
 /* amenities list */
 
 .amenities-container {
@@ -302,5 +323,3 @@ header {
 	left: 0;
 	color: #333;
   }
-  
-
