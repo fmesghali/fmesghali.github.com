@@ -54,10 +54,16 @@ html {
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 	text-align: center;	
 	text-transform: uppercase;
-
-
-
 }
+
+
+/* For screens up to 480px wide (typical width of mobile phones) */
+@media (max-width: 480px) {
+	.parallax_section h2 {
+	  font-size: 60px; /* adjust as needed */
+	  text-align: center;
+	}
+  }
 
 header {
 	display: flex;
