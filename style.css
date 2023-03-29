@@ -8,7 +8,7 @@ body {
 /* For screens up to 480px wide (typical width of mobile phones) */
 @media only screen and (min-device-width: 360px) and (max-device-width: 640px) {
 	body {
-		font-size: 34px; /* set the desired font size here */
+		font-size: 40px; /* set the desired font size here */
 	}
 	
 	.parallax_section h2 {
