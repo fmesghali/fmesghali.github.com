@@ -48,6 +48,9 @@ html {
 ::-webkit-scrollbar {
     display: none;
 }
+
+
+/* parallax */ 
 .wrapper_outer {
 	width: 100%;
 	height: 100vh;
@@ -86,14 +89,15 @@ html {
 .parallax_section h2 {
 	color: #fff;
 	margin: 0;
-	font-size: 120px;
+	font-size: 100px;
+	font-family: 'Lucida Console', monospace;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 	text-align: center;	
 	text-transform: uppercase;
 }
 
 
-
+/* end of parallax section */
 
 header {
 	display: flex;
