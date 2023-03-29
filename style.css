@@ -34,7 +34,7 @@ body {
 		height: 100%;
 	}
 	#language-switcher button span {
-		font-size: 4em; /* change this value to adjust the size */
+		font-size: 3em; /* change this value to adjust the size */
 	  }
 }
 
