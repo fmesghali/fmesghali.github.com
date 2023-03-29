@@ -17,6 +17,7 @@ body {
 	
 	.parallax_section h2 {
 		font-size: 60px; /* adjust as needed */
+		text-align: center;	
 	}
 	
 	/* Google Maps */
