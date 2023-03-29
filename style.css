@@ -5,6 +5,10 @@ body {
 
 }
 
+#language-switcher button span {
+	font-size: 2em; /* change this value to adjust the size */
+  }
+
 /* For screens up to 480px wide (typical width of mobile phones) */
 @media only screen and (min-device-width: 360px) and (max-device-width: 640px) {
 	body {
@@ -29,6 +33,9 @@ body {
 		width: 100%;
 		height: 100%;
 	}
+	#language-switcher button span {
+		font-size: 5em; /* change this value to adjust the size */
+	  }
 }
 
 
