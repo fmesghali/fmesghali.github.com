@@ -44,7 +44,7 @@ html {
 	background-position: center center;
 	z-index: -1;
 	min-height: 100%;
-	transform: translate3d(0,0,-1px) scale:(2);
+	transform: translate3d(0,0,-1px) scale(2);
 }
 
 .parallax_section h2 {
