@@ -79,6 +79,7 @@ html {
 	z-index: -1;
 	min-height: 100%;
 	transform: translate3d(0,0,-1px) scale(2);
+	filter: blur(1px) opacity(0.7);
 }
 
 .parallax_section h2 {
