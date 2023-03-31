@@ -33,6 +33,19 @@
 </div>
 	  
 <header>
+	<nav class="my-menu" style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+		<div class="hamburger">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		  </div>		  
+		<ul>
+		  <li><a href="#home">Home</a></li>
+		  <li><a href="#gallery">Gallery</a></li>
+		  <li><a href="#where-we-are">Where We Are</a></li>
+		  <li><a href="#how-to-book">How To Book</a></li>
+		</ul>
+	  </nav>
 	<h1 id="dynamic-heading"></h1>
 	<div id="language-switcher">
 		<button onclick="switchLanguage('en')">
@@ -357,6 +370,20 @@ $(document).ready(function() {
     var scrollTop = $(this).scrollTop();
     $('.parallax_bg').css('top', -(scrollTop * 0.2) + 'px');
   });
+});
+
+
+</script>
+<script>
+
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.my-menu ul');
+const navOpen = document.querySelector('.my-menu .nav-open');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('is-active');
+  menu.classList.toggle('nav-open');
+  navOpen.classList.toggle('nav-open');
 });
 
 </script>

@@ -348,3 +348,11 @@ header video {
 	left: 0;
 	color: #333;
   }
+
+  
+  .my-menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
