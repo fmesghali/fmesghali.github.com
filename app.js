@@ -110,10 +110,3 @@ $(document).ready(function() {
   }
   
 
-  const hamburger = document.querySelector('.hamburger');
-  const menu = document.querySelector('.my-menu');
-  
-  hamburger.addEventListener('click', function() {
-	menu.classList.toggle('menu-open');
-  });
-  

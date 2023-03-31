@@ -349,10 +349,78 @@ header video {
 	color: #333;
   }
 
+
   
-  .my-menu {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  }
   
+ .hamburger {
+	position: relative;
+	display: block;
+	width: 35px;
+	cursor: pointer;
+	appearance: none;
+	outline: none;
+	background: none;
+	border: none;
+
+
+}
+
+ .hamburger .bar, .hamburger:after, .hamburger:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 5px;
+	background-color: black;
+	margin: 6px 0px;
+	transition: 0.4s;
+ }
+
+ .hamburger.is-active:before {
+	transform: rotate(-45deg) translate(-8px, 6px);
+ }
+
+ .hamburger.is-active:after {
+	transform: rotate(45deg) translate(-8px, -8px);
+ }
+
+
+ .hamburger.is-active .bar {
+	opacity: 0;
+ }
+
+ 
+ .mobile-nav {
+	position: fixed;
+	top: 0;
+	left: 100%;
+	width: 100%;
+	min-height: 100vh;
+	display: block;
+	z-index: 98;
+	background-color: rgba(0, 9, 139, 0.455);
+	padding-top: 120px;	
+	transition: 0.4s;
+ }
+
+ .mobile-nav.is-active {
+	left: 0;
+ }
+
+
+ .mobile-nav a {
+	display: block;
+	width: 100%;
+	max-width: 200px;
+	margin: 0 auto 16px;
+	text-align: center;
+	margin-bottom: 16px;
+	padding: 12px 16px;
+	color: white;
+	text-decoration: none;
+}
+ 
+
+.mobile-nav a:hover {
+	background-color: rgba(0, 9, 139, 0.455);
+}
+
