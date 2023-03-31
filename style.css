@@ -350,7 +350,7 @@ header video {
   }
 
 
-  
+
   
  .hamburger {
 	position: relative;
@@ -397,7 +397,7 @@ header video {
 	min-height: 100vh;
 	display: block;
 	z-index: 98;
-	background-color: rgba(0, 9, 139, 0.455);
+	background-color: rgba(0, 9, 139, 0.457);
 	padding-top: 120px;	
 	transition: 0.4s;
  }
